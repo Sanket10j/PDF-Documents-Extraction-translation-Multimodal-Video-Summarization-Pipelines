@@ -19,4 +19,4 @@ Built a multimodal summarization system that analyzes both visual and audio moda
 
 Extracts on-screen text from video frames and transcribes speech using OpenAI Whisper.
 
-Combines both sources into a cohesive, comprehensive summary, providing deeper contextual understanding of the video content.
+
