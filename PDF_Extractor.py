@@ -27,7 +27,7 @@ from transformers import (
     BartTokenizer, BartForConditionalGeneration
 )
 
-# ========================== CONFIG ========================== #
+
 PDF_PATH = "/kaggle/input/legalaa/12.pdf"
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -36,7 +36,6 @@ TRANSLATION_MODEL = "facebook/nllb-200-1.3B"
 SUMMARY_MODEL = "facebook/bart-large-cnn"
 EXTRACTION_MODEL = "google/flan-t5-base"
 
-# ========================== OCR PREPROCESSING ========================== #
 def preprocess_image_for_tesseract(pil_img):
     img = np.array(pil_img.convert('L'))  # Grayscale
     img = cv2.GaussianBlur(img, (3, 3), 0)  # Denoise
@@ -53,7 +52,7 @@ def extract_text_from_pdf(pdf_path):
     raw_text = "\n".join(combined_text)
     return re.sub(r'\s+', ' ', raw_text).strip()
 
-# ========================== TRANSLATION ========================== #
+
 def load_translation_pipeline():
     tokenizer = AutoTokenizer.from_pretrained(TRANSLATION_MODEL)
     model = AutoModelForSeq2SeqLM.from_pretrained(TRANSLATION_MODEL)
@@ -92,7 +91,7 @@ def summarize_text(text, tokenizer, model):
         summaries.append(summary)
     return " ".join(summaries)
 
-# ========================== EXTRACTION ========================== #
+
 def load_extraction_model():
     tokenizer = T5Tokenizer.from_pretrained(EXTRACTION_MODEL)
     model = T5ForConditionalGeneration.from_pretrained(EXTRACTION_MODEL).to(DEVICE)
@@ -153,7 +152,7 @@ def extract_fields_regex(text, current_fields):
 
     return current_fields
 
-# ========================== PIPELINE ========================== #
+
 def process_document(full_text, translator, sum_tokenizer, sum_model, ext_tokenizer, ext_model):
     translated_text = translate_text(full_text, translator)
     summary = summarize_text(translated_text, sum_tokenizer, sum_model)
@@ -180,6 +179,7 @@ def run_pipeline(pdf_path):
     print(f"✅ CSV saved as '{output_csv}'")
     return df
 
-# ========================== EXECUTE ========================== #
+
 if __name__ == "__main__":
     run_pipeline(PDF_PATH)
+
