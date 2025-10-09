@@ -3,19 +3,16 @@ from pathlib import Path
 from google.cloud import storage
 from google.api_core.exceptions import GoogleAPIError
 
-# -------------------- CONFIGURATION --------------------
 
 GCS_BUCKET_NAME = "ecourts_hccourts_pdf_extraction_bucket"
 PDF_PREFIX = "bombay_hc_court_test/"
-LOCAL_OUTPUT_DIR = Path("local_bombay_pdfs")  # Local folder to save PDFs
+LOCAL_OUTPUT_DIR = Path("local_bombay_pdfs")  
 
-# ------------------------------------------------------
 
 def download_all_pdfs():
-    # Create local output directory
+   
     LOCAL_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Initialize GCS client
     client = storage.Client()
     bucket = client.bucket(GCS_BUCKET_NAME)
 
@@ -48,3 +45,4 @@ if __name__ == "__main__":
     print("🚀 Starting download of Bombay HC Court PDFs ...")
     download_all_pdfs()
     print("🎉 Finished.")
+
