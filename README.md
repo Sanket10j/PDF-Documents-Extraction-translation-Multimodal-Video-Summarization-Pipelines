@@ -1,5 +1,6 @@
 PDF-Documents-Extraction-Translation-Multimodal-Video-Summarization-Pipelines
 
+
 1. Legal PDF Text Extraction & Summarization Pipeline:
 
 An end-to-end autonomous pipeline for processing and summarizing legal documents written in regional languages.
@@ -13,6 +14,7 @@ Multilingual Translation: Translates extracted text from regional Indian languag
 Summarization: Generates concise, structured English summaries of lengthy legal texts using transformer-based summarization models.
 
 Automated Data Handling: Automatically appends extracted, translated, and summarized outputs to CSV files for organized storage, easy retrieval, and downstream analysis.
+
 
 2. Multimodal Video Summarization Pipeline:
 
