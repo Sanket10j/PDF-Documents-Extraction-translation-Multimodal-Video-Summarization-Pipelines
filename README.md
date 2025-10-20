@@ -1,22 +1,29 @@
-# PDF-Documents-Extraction-translation-Multimodal-Video-Summarization-Pipelines
+PDF-Documents-Extraction-Translation-Multimodal-Video-Summarization-Pipelines
+
 1. Legal PDF Text Extraction & Summarization Pipeline
 
-Developed an autonomous pipeline to extract text from legal PDF documents written in multiple regional languages.
+An end-to-end autonomous pipeline for processing and summarizing legal documents written in regional languages.
 
-Utilized Hugging Face open-source models for:
+Key Features:
 
-OCR and text extraction from scanned legal PDFs.
+OCR & Text Extraction: Extracts text from scanned and non-scanned legal PDF documents using open-source Hugging Face OCR models.
 
-Translation from regional languages to English.
+Multilingual Translation: Translates extracted text from regional Indian languages into English using different open source transformer models.
 
-Summarization of translated legal text into concise, structured outputs.
+Summarization: Generates concise, structured English summaries of lengthy legal texts using transformer-based summarization models.
 
-Automatically appends extracted and summarized content to CSV files for efficient storage and analysis.
+Automated Data Handling: Automatically appends extracted, translated, and summarized outputs to CSV files for organized storage, easy retrieval, and downstream analysis.
 
 2. Multimodal Video Summarization Pipeline
 
-Built a multimodal summarization system that analyzes both visual and audio modalities from videos.
+A robust multimodal system designed to generate comprehensive summaries from videos by combining visual and audio information.
 
-Extracts on-screen text from video frames and transcribes speech using OpenAI Whisper.
+Key Features:
 
+Speech Transcription: Utilizes OpenAI Whisper for accurate audio-to-text transcription.
 
+Visual Analysis: Extracts on-screen text and key visual cues from video frames using image captioning and OCR models (e.g., BLIP-2 or Tesseract).
+
+Multimodal Fusion: Integrates textual, auditory, and visual information to produce coherent, topic-structured summaries.
+
+Applications: Ideal for summarizing lectures, legal hearings, documentaries, and other content-rich videos.
